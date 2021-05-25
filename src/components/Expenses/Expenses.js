@@ -15,9 +15,13 @@ const Expenses = (props) => {
   return (
     <div> 
       <Card className="expenses">
-        <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+        <ExpensesFilter 
+          selected={filteredYear} 
+          onChangeFilter={filterChangeHandler}
+        />
         {props.items.map((expense) => (
           <ExpenseItem 
+            key={expense.id} // Allows react to update the list in a more efficient way
             title={expense.title} 
             amount={expense.amount} 
             date={expense.date}/>
