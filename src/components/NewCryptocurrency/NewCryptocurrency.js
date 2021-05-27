@@ -1,17 +1,13 @@
 import React, { useState } from 'react'; // not needed in modern React, but this library is used under the wood
 
-import ExpenseForm from './ExpenseForm';
-import './NewExpense.css';
+import CryptocurrencyForm from './CryptocurrencyForm';
+import './NewCryptocurrency.css';
 
-const NewExpense = (props) => {
+const NewCryptocurrency = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   
   const saveExpenseDataHandler = (enteredExpenseData) => {
-    const expenseData = {
-      ...enteredExpenseData,
-      id: Math.random().toString()
-    };
-    props.onAddExpense(expenseData);
+    props.onAddExpense(enteredExpenseData);
     setIsEditing(false);
   }; 
 
@@ -27,10 +23,10 @@ const NewExpense = (props) => {
 
   return (
     <div className="new-expense">
-      {!isEditing && <button onClick={startEditingHandler}>Add New Expense</button>}
-      {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler}/>}
+      {!isEditing && <button onClick={startEditingHandler}>Add New Cryptocurrency</button>}
+      {isEditing && <CryptocurrencyForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler}/>}
     </div>
   );
 };
 
-export default NewExpense;
+export default NewCryptocurrency;

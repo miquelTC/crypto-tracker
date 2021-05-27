@@ -1,45 +1,42 @@
 import React, { useState } from 'react';
 
-import NewExpense from './components/NewExpense/NewExpense';
-import Expenses from './components/Expenses/Expenses';
+import NewCryptocurrency from './components/NewCryptocurrency/NewCryptocurrency';
+import Portfolio from './components/Portfolio/Portfolio';
+import logos from './components/UI/Logos';
 
-const DUMMY_EXPENSES = [
-  {
-    id: 'e1',
-    title: 'Toilet Paper',
-    amount: 94.12,
-    date: new Date(2020, 7, 14),
-  },
-  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-  {
-    id: 'e3',
-    title: 'Car Insurance',
-    amount: 294.67,
-    date: new Date(2021, 2, 28),
-  },
-  {
-    id: 'e4',
-    title: 'New Desk (Wooden)',
-    amount: 450,
-    date: new Date(2021, 5, 12),
-  },
+const DUMMY_PORTFOLIO = [
+  { id: 0, name: 'Bitcoin', symbol: 'BTC', amount: 1, rate: 40000, image: logos[0] },
+  { id: 1, name: 'Ethereum', symbol: 'ETH', amount: 30, rate: 3000, image: logos[1] },
+  { id: 2, name: 'Cardano', symbol: 'ADA', amount: 10000, rate: 2, image: logos[2] },
+  { id: 3, name: 'Ripple', symbol: 'XRP', amount: 5000, rate: 1, image: logos[3] },
+  { id: 4, name: 'Polkadot', symbol: 'DOT', amount: 0, rate: 23, image: logos[4] },
+  { id: 5, name: 'Uniswap', symbol: 'UNI', amount: 0, rate: 30, image: logos[5] },
+  { id: 6, name: 'Chainlink', symbol: 'LINK', amount: 0, rate: 35, image: logos[6] }
 ];
 
 const App = () => {
-  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);  
+  const [portfolio, setPortfolio] = useState(DUMMY_PORTFOLIO);  
   
-  const addExpenseHandler = (expense) => {
-    // setExpenses([expense, ...expenses]); --> This would not be correct when I update status based on previous status
-    setExpenses(prevExpenses => {
-      return [expense, ...prevExpenses];
+ 
+  const addExpenseHandler = (cryptocurrency) => {
+    setPortfolio(prevPortfolio => {
+      return (
+        prevPortfolio.map(element => {
+          if(element.name == cryptocurrency.name) {
+            element.amount = cryptocurrency.amount;
+          };
+        
+        return element;
+        })       
+      );
     });
   };
   
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler}/>
-      <Expenses 
-        items={expenses}
+      <NewCryptocurrency onAddExpense={addExpenseHandler}/>
+      <Portfolio 
+        items={portfolio}
       />
     </div>
   );
