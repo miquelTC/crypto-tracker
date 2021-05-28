@@ -9,8 +9,7 @@ import './Portfolio.css';
 const Portfolio = (props) => {  
   return (
     <div> 
-      <Card className="expenses">
-        {/*<PortfolioChart expenses={props.items}/>}*/}
+      <Card className="portfolio">
         <PortfolioList items={props.items}/>
       </Card>
     </div>

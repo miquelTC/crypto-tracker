@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import dropDown from './CryptocurrencyDropDown';
+import cryptocurrencyPortfolio from '../Portfolio/CryptocurrencyPortfolio';
 import './CryptocurrencyForm.css';
 
 const CryptocurrencyForm = (props) => {
-  const [enteredName, setEnteredName] = useState('');
+  const [enteredName, setEnteredName] = useState('Bitcoin');
   const [enteredAmount, setEnteredAmount] = useState('');
   
   const nameChangeHandler = (event) => {
@@ -28,31 +28,31 @@ const CryptocurrencyForm = (props) => {
     setEnteredAmount('');
   };
   
-  const dropDownHandler = dropDown.map(element => {
-    return (<option>{element}</option>)
+  const dropDownHandler = cryptocurrencyPortfolio.map(element => {
+    return (<option value={element.name}>{element.name}</option>)
   });
 
   
   return (
     <form onSubmit={submitHandler}>
-      <div className='new-expense__controls'>
-        <div className='new-expense__control'>
+      <div className='new-cryptocurrency__controls'>
+        <div className='new-cryptocurrency__control'>
           <label>Name</label>
           <select value={enteredName} onChange={nameChangeHandler}>
             {dropDownHandler}
           </select>
         </div>
-        <div className='new-expense__control'>
+        <div className='new-cryptocurrency__control'>
           <label>Amount</label>
           <input 
             type='number' 
-            min='0.01'
+            min='0'
             step='0.01'
             value={enteredAmount} 
             onChange={amountChangeHandler}/>
         </div>
       </div>
-      <div className='new-expense__actions'>
+      <div className='new-cryptocurrency__actions'>
         <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type='submit'>Add Cryptocurrency</button>
       </div>

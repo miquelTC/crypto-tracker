@@ -8,7 +8,7 @@ const PortfolioList = props => {
     return cryptocurrency.amount > 0
   });
 
-  return <ul className="expenses-list">
+  return <ul className="portfolio-list">
     {filteredItems.map((cryptocurrency) => (
       <PortfolioItem 
         key={cryptocurrency.id} // Allows react to update the list in a more efficient way
