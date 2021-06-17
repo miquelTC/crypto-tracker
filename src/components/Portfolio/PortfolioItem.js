@@ -4,7 +4,7 @@ import Card from '../UI/Card';
 import './PortfolioItem.css';
 
 const PortfolioItem = (props) => {
-   
+  
   return (
     <li>
       <Card className="portfolio-item">

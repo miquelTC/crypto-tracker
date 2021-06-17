@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
-import cryptocurrencyPortfolio from '../Portfolio/CryptocurrencyPortfolio';
 import './CryptocurrencyForm.css';
+import PortfolioContext from '../../store/portfolio-context';
 
 const CryptocurrencyForm = (props) => {
   const [enteredName, setEnteredName] = useState('Bitcoin');
   const [enteredAmount, setEnteredAmount] = useState('');
+  
+  const portfolioCtx = useContext(PortfolioContext); 
   
   const nameChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -16,19 +18,20 @@ const CryptocurrencyForm = (props) => {
    };
 
   const submitHandler = (event) => {
-    event.preventDefault(); // this avoids the request being sent and page being reloaded
+    event.preventDefault();
 
     const expenseData = {
       name: enteredName,
       amount: +enteredAmount
     };
 
-    props.onSaveExpenseData(expenseData);
+    portfolioCtx.addCrypto(expenseData);
+
     setEnteredName('');
     setEnteredAmount('');
   };
   
-  const dropDownHandler = props.portfolio.map(element => {
+  const dropDownHandler = portfolioCtx.cryptocurrencyPortfolio.map(element => {
     return (<option value={element.name}>{element.name}</option>)
   });
 

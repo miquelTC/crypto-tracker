@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // not needed in modern React, but this library is used under the wood
+import React, { useState } from 'react';
 
 import CryptocurrencyForm from './CryptocurrencyForm';
 import './NewCryptocurrency.css';
@@ -9,9 +9,7 @@ const NewCryptocurrency = (props) => {
   const saveExpenseDataHandler = (enteredExpenseData) => {
     props.onAddExpense(enteredExpenseData);
     setIsEditing(false);
-  }; 
-
-  
+  };   
 
   const startEditingHandler = () => {
     setIsEditing(true);
@@ -24,7 +22,7 @@ const NewCryptocurrency = (props) => {
   return (
     <div className="new-cryptocurrency">
       {!isEditing && <button onClick={startEditingHandler}>Add New Cryptocurrency</button>}
-      {isEditing && <CryptocurrencyForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler} portfolio={props.portfolio} />}
+      {isEditing && <CryptocurrencyForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler} />}
     </div>
   );
 };
