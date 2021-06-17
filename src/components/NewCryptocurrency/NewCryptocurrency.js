@@ -24,7 +24,7 @@ const NewCryptocurrency = (props) => {
   return (
     <div className="new-cryptocurrency">
       {!isEditing && <button onClick={startEditingHandler}>Add New Cryptocurrency</button>}
-      {isEditing && <CryptocurrencyForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler}/>}
+      {isEditing && <CryptocurrencyForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler} portfolio={props.portfolio} />}
     </div>
   );
 };

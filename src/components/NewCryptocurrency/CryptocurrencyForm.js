@@ -28,7 +28,7 @@ const CryptocurrencyForm = (props) => {
     setEnteredAmount('');
   };
   
-  const dropDownHandler = cryptocurrencyPortfolio.map(element => {
+  const dropDownHandler = props.portfolio.map(element => {
     return (<option value={element.name}>{element.name}</option>)
   });
 
