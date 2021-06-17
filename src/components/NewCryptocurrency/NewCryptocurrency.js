@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import CryptocurrencyForm from './CryptocurrencyForm';
-import './NewCryptocurrency.css';
+import classes from './NewCryptocurrency.module.css';
 
 const NewCryptocurrency = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -20,7 +20,7 @@ const NewCryptocurrency = (props) => {
   }
 
   return (
-    <div className="new-cryptocurrency">
+    <div className={classes['new-cryptocurrency']}>
       {}
       {!isEditing && <button onClick={startEditingHandler}>Add New Cryptocurrency</button>}
       {isEditing && <CryptocurrencyForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler} />}

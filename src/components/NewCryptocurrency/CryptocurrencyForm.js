@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 
-import './CryptocurrencyForm.css';
+import classes from './CryptocurrencyForm.module.css';
 import PortfolioContext from '../../store/portfolio-context';
 
 const CryptocurrencyForm = (props) => {
@@ -32,20 +32,20 @@ const CryptocurrencyForm = (props) => {
   };
   
   const dropDownHandler = portfolioCtx.cryptocurrencyPortfolio.map(element => {
-    return (<option value={element.name}>{element.name}</option>)
+    return (<option value={element.name} key={element.id}>{element.name}</option>)
   });
 
   
   return (
     <form onSubmit={submitHandler}>
-      <div className='new-cryptocurrency__controls'>
-        <div className='new-cryptocurrency__control'>
+      <div className={classes['new-cryptocurrency__controls']}>
+        <div className={classes['new-cryptocurrency__control']}>
           <label>Name</label>
           <select value={enteredName} onChange={nameChangeHandler}>
             {dropDownHandler}
           </select>
         </div>
-        <div className='new-cryptocurrency__control'>
+        <div className={classes['new-cryptocurrency__control']}>
           <label>Amount</label>
           <input 
             type='number' 
@@ -55,7 +55,7 @@ const CryptocurrencyForm = (props) => {
             onChange={amountChangeHandler}/>
         </div>
       </div>
-      <div className='new-cryptocurrency__actions'>
+      <div className={classes['new-cryptocurrency__actions']}>
         <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type='submit'>Add Cryptocurrency</button>
       </div>

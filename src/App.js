@@ -15,7 +15,6 @@ const App = () => {
   const disableModalHandler = () => {
     setIsValid(true);
   }
-  console.log(isValid);
   
   return (
     <PortfolioProvider onEnableModal={enableModalHandler} onDisableModal={disableModalHandler} >

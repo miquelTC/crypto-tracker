@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import PortfolioItem from './PortfolioItem';
-import './PortfolioList.css';
+import classes from './PortfolioList.module.css';
 import PortfolioContext from '../../store/portfolio-context';
 
 const PortfolioList = () => {
@@ -14,7 +14,7 @@ const PortfolioList = () => {
   );
 
   return (
-    <ul className="portfolio-list">
+    <ul className={classes['portfolio-list']}>
       {filteredItems.map((cryptocurrency) => (
         <PortfolioItem
           key={cryptocurrency.id}

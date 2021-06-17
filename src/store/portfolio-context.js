@@ -73,8 +73,6 @@ export const PortfolioProvider = (props) => {
     removeCrypto: removeCryptoHandler
   };
 
-  console.log(portfolioContext.isValid);
-  
   return (
     <PortfolioContext.Provider value={portfolioContext}>
       {props.children}
