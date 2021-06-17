@@ -34,6 +34,26 @@
     padding: 0.5rem;
     border-radius: 12px;
   }
+
+  .portfolio-item__cancel {
+    font-size: 1rem;
+    color: white;
+    background-color: #5d0000;
+    border: 1px solid white;
+    cursor: pointer;
+    padding: 0.1rem;
+    border-radius: 6px;
+    height: 2rem;
+    width: 2rem;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .portfolio-item__cancel:hover,
+  .portfolio-item__cancel:active {
+    background-color: #a01c1c;
+    border-color: #f1efef;
+  }
   
   @media (min-width: 580px) {
     .portfolio-item__description {

@@ -4,6 +4,9 @@ import Card from '../UI/Card';
 import './PortfolioItem.css';
 
 const PortfolioItem = (props) => {
+  const removeCryptoHandler = () => {
+    props.onItemRemove(props.id);
+  }
   
   return (
     <li>
@@ -13,7 +16,8 @@ const PortfolioItem = (props) => {
           <h2>{props.symbol}</h2>         
           <h2>{props.name}</h2>
           <h2>{`${props.amount} ${props.symbol}`}</h2>
-          <div className="portfolio-item__price">${props.amount * props.rate}</div>
+          <div className="portfolio-item__price">${(props.amount * props.rate).toFixed(2)}</div>
+          <div className="portfolio-item__cancel" onClick={removeCryptoHandler}>X</div>
         </div>
       </Card>
     </li>

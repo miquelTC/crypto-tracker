@@ -27,7 +27,7 @@ const CryptocurrencyForm = (props) => {
 
     portfolioCtx.addCrypto(expenseData);
 
-    setEnteredName('');
+    setEnteredName('Bitcoin');
     setEnteredAmount('');
   };
   

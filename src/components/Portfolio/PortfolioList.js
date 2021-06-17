@@ -18,10 +18,12 @@ const PortfolioList = () => {
       {filteredItems.map((cryptocurrency) => (
         <PortfolioItem
           key={cryptocurrency.id}
+          id={cryptocurrency.id}
           image={cryptocurrency.image}
           symbol={cryptocurrency.symbol}
           amount={cryptocurrency.amount}
           rate={cryptocurrency.rate}
+          onItemRemove={portfolioCtx.removeCrypto}
         />
       ))}
     </ul>
