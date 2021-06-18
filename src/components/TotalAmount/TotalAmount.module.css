@@ -1,0 +1,14 @@
+.totalAmount {  
+  background-color: #40005d;
+  border: 1px solid white;
+  width: 50rem;
+  max-width: 100%;
+  color: white;
+  text-align: center;
+  height: 4rem;
+  max-height: 100%;  
+}
+
+.totalAmount h1{  
+  margin: 0.5rem;
+} 

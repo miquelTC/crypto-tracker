@@ -18,8 +18,8 @@ const App = () => {
   
   return (
     <PortfolioProvider onEnableModal={enableModalHandler} onDisableModal={disableModalHandler} >
-      {!isValid && <Modal onDisableModal={disableModalHandler} />}
-      <NewCryptocurrency />
+      {!isValid && <Modal onDisableModal={disableModalHandler} />}      
+      <NewCryptocurrency />       
       <Portfolio />
     </PortfolioProvider>
   );
