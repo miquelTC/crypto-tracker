@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const PortfolioContext = React.createContext({
   cryptocurrencyPortfolio: [],
   addCrypto: () => {},
-  isValid: true
+  removeCrypto: () => {},
 });
 
 export default PortfolioContext;

@@ -20,12 +20,12 @@ const CryptocurrencyForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const expenseData = {
+    const cryptoData = {
       name: enteredName,
       amount: +enteredAmount
     };
 
-    portfolioCtx.addCrypto(expenseData);
+    portfolioCtx.addCrypto(cryptoData);
 
     setEnteredName('Bitcoin');
     setEnteredAmount('');
@@ -34,7 +34,6 @@ const CryptocurrencyForm = (props) => {
   const dropDownHandler = portfolioCtx.cryptocurrencyPortfolio.map(element => {
     return (<option value={element.name} key={element.id}>{element.name}</option>)
   });
-
   
   return (
     <form onSubmit={submitHandler}>
